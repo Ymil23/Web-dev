@@ -43,8 +43,8 @@ for(var i = 0; i < n; i++){
                 var kidk = new Audio("sounds/kick.mp3");
                 kick.play();
                 break;                
-            default:
-                break;
+            default : console.log(buttonInnerHtml);
+            
         }
         
         
