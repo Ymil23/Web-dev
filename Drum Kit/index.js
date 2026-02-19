@@ -3,18 +3,23 @@
 var n = document.querySelectorAll(".drum").length;
 
 for(var i = 0; i < n; i++){
-    document.querySelectorAll("button")[i].addEventListener("click", function handleClick(){
+    document.querySelectorAll(".drum")[i].addEventListener("click", function (){
         
         var buttonInnerHtml = this.innerHTML;
 
         makeSound(buttonInnerHtml);
-        
+
+        buttonAnimation(buttonInnerHtml);
 
         });
 
             //Detecting Keypad Press:
-    document.addEventListener("keydown", function(event){
+    document.addEventListener("keydown", function(event) {
+
     makeSound(event.key);
+    buttonAnimation(event.key);
+ 
+    });
 
     function makeSound(key){
         switch (key) {
@@ -50,11 +55,22 @@ for(var i = 0; i < n; i++){
                 case "l":
                     var kick = new Audio("sounds/kick.mp3");
                     kick.play();
-                    break;                
+                    break;     
+
                 default : console.log(buttonInnerHtml);
                 
             }
         }
+    }
 
-    });
-}
+    function buttonAnimation(currentKey){
+
+        var activButton = document.querySelector("."+currentKey);
+
+        activButton.classList.add("pressed");
+
+        setTimeout(function(){
+            activButton.classList.remove("pressed");
+        }, 100)
+    }
+    
