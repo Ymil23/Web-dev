@@ -22,7 +22,7 @@ $("input").keydown(function(event){
     console.log(event.key);
 });
 
-    //Using the Entire Document to listen to a click;
+    //Using the Entire Document to listen for a click;
 $(document).keydown(function(event){
     $("h1").text(event.key);
 })
@@ -31,6 +31,7 @@ $(document).keydown(function(event){
 $("h1").on("mouseover", function(){
     $("h1").html("Stop Touching Me");
 
+        //Adding SetTimeout 
     setTimeout(function(){
         $("h1").html("Kamil ina Abdirahman");
     }, 900);
