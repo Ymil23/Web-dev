@@ -26,7 +26,35 @@ $(".btn").click(function () {
 
     playSound(userChosenColour);
     animatePress(userChosenColour);
+
+    checkAnswer(userClickedPattern.length - 1);
 });
+
+function checkAnswer(currentLevel) {
+
+
+    if (userClickedPattern[currentLevel] === gamePattern[currentLevel]) {
+
+        if (userClickedPattern.length === gamePattern.length) {
+
+            setTimeout(function () {
+                nextSequence();
+            }, 1000);
+            userClickedPattern = []
+        }
+
+    } else {
+        playSound("wrong");
+        $("body").addClass("game-over");
+        setTimeout(function () {
+            $("body").removeClass("game-over");
+        }, 200);
+        $("#level-title").text("Khalas!!");
+        startOver();
+
+
+    }
+}
 
 function nextSequence() {
 
@@ -46,6 +74,8 @@ function nextSequence() {
     $("#" + randomChosenColour).fadeIn(100).fadeOut(100).
     fadeIn(100);
     playSound(randomChosenColour);
+
+
 }
 
 //A function that Plays Sound
@@ -62,4 +92,11 @@ function animatePress(currentColour) {
     setTimeout(function () {
         $("#" + currentColour).removeClass("pressed")
     }, 100);
+}
+
+function startOver(){
+    level = 0;
+    gamePattern = [];
+    userClickedPattern = [];
+    started = false;
 }
