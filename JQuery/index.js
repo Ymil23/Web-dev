@@ -33,6 +33,27 @@ $("h1").on("mouseover", function(){
 
         //Adding SetTimeout 
     setTimeout(function(){
-        $("h1").html("Kamil ina Abdirahman");
+        $("h1").html("Kamil Ina Abdirahman");
     }, 900);
-})
+});
+
+
+//Adding classes;
+
+$("h1").addClass("newClass bellaM");
+console.log($("h1").attr("class"));//returns className;
+console.log($("h1").hasClass("newC"));//false;
+
+$("h1").removeClass("newClass");
+
+
+//adding Elements
+$("h2").append("<button>Kay</button>");
+$("h2").on("click", function(){
+    $("h2").text("Touch Me!!");
+
+
+    setTimeout(function(){
+        $("h2").html("Yusra Ina Ahmed")
+    },900);
+});
