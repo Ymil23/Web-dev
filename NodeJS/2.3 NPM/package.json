@@ -1,0 +1,23 @@
+{
+  "name": "learning-npm",
+  "version": "1.0.0",
+  "description": "I'm learning about NPM",
+  "keywords": [
+    "noobie"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "web-dev"
+  },
+  "license": "ISC",
+  "author": "Kamil",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "happn-sillyname": "^0.1.1",
+    "sillyname": "^0.1.0"
+  }
+}
