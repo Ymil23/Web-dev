@@ -11,7 +11,7 @@ fs.writeFile("message.text", "Hello from Kamil", (err) =>{
 
 
 //reading a File;
-fs.readFile("./message.text",  (err, data)=> {
+fs.readFile("./message.txt",  (err, data)=> {
     if(err) throw err;
     console.log(data);
 });
