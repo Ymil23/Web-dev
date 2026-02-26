@@ -4,7 +4,7 @@ var n = document.querySelectorAll(".drum").length;
 for (var i = 0; i < n; i++) {
     document.querySelectorAll(".drum")[i].addEventListener("click", function () {
 
-        var buttonInnerHtml = this.innerHTML;
+        var buttonInnerHtml = this.innerHTML;//stores the exact button class that was clicked
 
         makeSound(buttonInnerHtml);
 
