@@ -7,8 +7,8 @@ const __dirname = dirname(fileURLToPath(import.meta.url));//filePath
 
 const app = express();
 const port = 3000;
-
-app.use(bodyParser.urlencoded({extended: true}));//passing as url
+    //parsing incoming data into req.body
+app.use(bodyParser.urlencoded({extended: true}));
 
 app.post('/submit',(req, res) => {
     console.log(req.body);
