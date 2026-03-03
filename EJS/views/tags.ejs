@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EJS Tag You're it</title>
+</head>
+<body>
+    <h1>
+        <%= title %>
+    </h1>
+        <%# Return The Lists of Items if seconnds is Even %>
+    <p>Current Seconds: <%= sekemo %></p>
+
+    <% if( sekemo % 2 == 0){ %>
+        <% items.forEach((backends) => { %>
+                <li>
+                    <%= backends %>
+                </li>
+        <% }); %>        
+
+    <% } else { %>
+            <p>Stay in the FrontEnd</p>
+        <% } %>
+
+        <p>
+            <%- htmlContent %>
+        </p>
+
+
+        <%# EJS Footer  %>
+        <%-include('footer.ejs')  %>
+
+</body>
+</html>
