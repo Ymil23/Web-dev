@@ -1,0 +1,92 @@
+html {
+  height: 100%;
+}
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  padding: 0;
+  background-color: #e26e5c;
+background-image: url("data:image/svg+xml,<svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='a' patternUnits='userSpaceOnUse' width='60' height='30' patternTransform='scale(5) rotate(25)'><rect x='0' y='0' width='100%' height='100%' fill='hsla(215,50%,22.7%,1)'/><path d='M1-6.5v13h28v-13H1zm15 15v13h28v-13H16zm-15 15v13h28v-13H1z'  stroke-width='1' stroke='none' fill='hsla(355,77.6%,56.3%,1)'/><path d='M31-6.5v13h28v-13H31zm-45 15v13h28v-13h-28zm60 0v13h28v-13H46zm-15 15v13h28v-13H31z'  stroke-width='1' stroke='none' fill='hsla(182,42.6%,76.1%,1)'/></pattern></defs><rect width='800%' height='800%' transform='translate(-435,-285)' fill='url(%23a)'/></svg>");
+  text-align: center;
+}
+
+h1 {
+  display: inline;
+  font-size: 5rem;
+  text-align: center;
+  color: #e26e5c;
+  background-color:rgb(13, 13, 106);
+  
+}
+
+h2 {
+  /* color: #e26e5c; */
+  color: aliceblue;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  margin: 10px auto;
+  background-color:rgb(13, 13, 106);
+  width: fit-content;
+}
+
+button {
+  font-size: 5rem;
+}
+
+.buttons button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background-color: white;
+  cursor: pointer;
+  padding: 0;
+  margin: 0 10px;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.buttons button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.buttons button img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+#recipeContainer {
+  background-color:rgb(13, 13, 106);
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#recipeTitle {
+  color: #e26e5c;
+}
+
+#ingredientsList {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+#ingredientsList li {
+  margin-bottom: 10px;
+  /* color: #555; */
+
+  color: aliceblue;
+}
