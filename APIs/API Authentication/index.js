@@ -15,7 +15,9 @@ const myBearerToken = "9ddf5b5f-b12f-4a27-8e65-6b19a6eb2a20";
 app.use(morgan("dev"));
 
 app.get("/", (req, res) => {
-  res.render("index.ejs", { content: "API Response." });
+  res.render("index.ejs", {
+    content: "API Response."
+  });
 });
 
 app.get("/noAuth", async (req, res) => {
@@ -24,18 +26,22 @@ app.get("/noAuth", async (req, res) => {
     const response = await axios.get(API_URL + "/random");
     console.log(response.data);
     const result = JSON.stringify(response.data);
-    
-    res.render("index.ejs", { content: result});
-    
+
+    res.render("index.ejs", {
+      content: result
+    });
+
   } catch (error) {
-    res.send({error:error.message});
+    res.send({
+      error: error.message
+    });
   }
 
 });
 
 app.get("/basicAuth", async (req, res) => {
- //Specifying that we only want the secrets from page 2
-    try {
+  //Specifying that we only want the secrets from page 2
+  try {
     const result = await axios.get(API_URL + "/all?page=2", {
 
       //Using AXIOS to do Basic Auth:
@@ -45,11 +51,15 @@ app.get("/basicAuth", async (req, res) => {
       },
     });
     const response = JSON.stringify(result.data)
-    res.render("index.ejs", { content: response });
+    res.render("index.ejs", {
+      content: response
+    });
   } catch (error) {
-    res.status(404).send(error.message);
+    res.render('index.ejs', {
+      content: JSON.stringify(error.response.data)
+    });
   }
-  
+
 });
 
 app.get("/apiKey", async (req, res) => {
@@ -62,32 +72,36 @@ app.get("/apiKey", async (req, res) => {
       }
     });
     const result = JSON.stringify(response.data);
-    res.render('index.ejs',{ content : result} );
+    res.render('index.ejs', {
+      content: result
+    });
 
   } catch (error) {
-    res.status(500).send({error:error.message});
-    
+    res.render('index.ejs', {
+      content: JSON.stringify(error.response.data)
+    });
+
   }
 });
 
-app.get("/bearerToken", async (req, res) => {
- //hitting up the secrets api and id = 42;
-  try {
-    const response = await axios.get(API_URL + "/secrets/42", {
-      headers: {
-        "Authorization": `Bearer ${myBearerToken}`, 
-      },
-      params: {
-        id: 42,
-      }
-    });
-    const result = JSON.stringify(response.data);
-    res.render('index.ejs', {content: result}); 
-    
-  } catch (error) {
-    res.status(500).send({error:error.message});
-  }
+const config = {
+  headers: {
+    Authorization: `Bearer ${myBearerToken}`
+  },
+};
 
+app.get("/bearerToken", async (req, res) => {
+  //hitting up the secrets api and id = 42;  
+  try {
+    const response = await axios.get(API_URL + "/secrets/2", config);
+    res.render("index.ejs", {
+      content: JSON.stringify(response.data)
+    });
+  } catch (error) {
+    res.render("index.ejs", {
+      content: JSON.stringify(error.response.data)
+    });
+  }
 });
 
 app.listen(port, () => {
