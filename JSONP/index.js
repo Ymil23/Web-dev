@@ -15,7 +15,7 @@ app.use(morgan("dev"));
 let data;
 
 app.get("/", (req, res) => {
-  res.render("index.ejs", {recipe:data});
+  res.render("index.ejs", {karinta:data});
 });
 
 app.post("/recipe", (req, res) => {

@@ -7,7 +7,7 @@
 </head>
 
 <body>
-  <h1>Fadhuma Hindi Hotel🌮</h1>
+  <h1>Fadhuma Hindi Taco🌮</h1>
 
   <form action="/recipe" method="POST" class="buttons">
     <button type="submit" value="chicken" name="choice">🍗</button>
@@ -16,24 +16,24 @@
   </form>
   <div id="recipeContainer" class="hidden">
 
-    <!-- If no recipe yet, show: -->
-     <% if(locals.recipe){ %>
+    
+     <% if(locals.karinta){ %>
       <h2 >
-        <%= recipe.name %>
+        <%= karinta.name %>
       </h2>
 
       <h3>Ingredients:</h3>
       <ul id="ingredientsList">
         <li>
-          <%= recipe.ingredients.protein.name %>, <%= recipe.ingredients.protein.preparation %>
+          <%= karinta.ingredients.protein.name %>, <%= karinta.ingredients.protein.preparation %>
 
         </li>
         <li>
-          <%= recipe.ingredients.salsa.name %>, <%= recipe.ingredients.salsa.spiciness %>
+          <%= karinta.ingredients.salsa.name %>, <%= karinta.ingredients.salsa.spiciness %>
 
         </li>
         <li>
-          <% recipe.ingredients.toppings.forEach(topping => {%>
+          <% karinta.ingredients.toppings.forEach(topping => {%>
             <li>
               <%= topping.quantity %> of <%= topping.name %>
             </li>
