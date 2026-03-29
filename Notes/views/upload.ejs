@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload Note</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>📤 Upload Study Note</h1>
+      <a href="/" class="btn btn-secondary">← Back to Gallery</a>
+    </header>
+
+    <% if (message) { %>
+      <div class="alert alert-success"><%= message %></div>
+    <% } %>
+
+    <div class="upload-box">
+      <form action="/upload" method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="notePhoto">Choose a photo of your note:</label>
+          <input 
+            type="file" 
+            id="notePhoto" 
+            name="notePhoto" 
+            accept="image/*"
+            required
+          >
+        </div>
+
+        <button type="submit" class="btn btn-primary">Upload Note 📸</button>
+      </form>
+
+      <div class="upload-tips">
+        <h3>💡 Tips:</h3>
+        <ul>
+          <li>Take clear, well-lit photos</li>
+          <li>Make sure text is readable</li>
+          <li>Use landscape mode for wider notes</li>
+          <li>Supports JPG, PNG formats</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

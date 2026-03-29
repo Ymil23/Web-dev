@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <% 
+    // Extract filename without extension
+    const displayName = currentPhoto.replace(/\.(jpg|jpeg|png|JPG|JPEG|PNG)$/i, '');
+  %>
+  <title><%= displayName %>-Note (<%= currentIndex + 1 %> of <%= photos.length %>)</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body class="viewer-body">
+  <div class="viewer-container">
+    
+    <!-- Header -->
+    <div class="viewer-header">
+      <a href="/" class="btn-close">✕ Close</a>
+      <div class="viewer-counter">
+        <div class="note-title"><%= displayName %></div>
+        <div class="note-position"><%= currentIndex + 1 %> of <%= photos.length %></div>
+      </div>
+    </div>
+
+    <!-- Main Image -->
+    <div class="viewer-main">
+      <img src="/uploads/<%= currentPhoto %>" alt="<%= displayName %>" class="viewer-image">
+    </div>
+
+    <!-- Navigation -->
+    <div class="viewer-nav">
+      <% if (currentIndex > 0) { %>
+        <a href="/view/<%= currentIndex - 1 %>" class="btn-nav btn-prev">
+          ← Previous
+        </a>
+      <% } else { %>
+        <button class="btn-nav btn-prev" disabled>← Previous</button>
+      <% } %>
+
+      <a href="/" class="btn-nav btn-gallery">Gallery View</a>
+
+      <% if (currentIndex < photos.length - 1) { %>
+        <a href="/view/<%= currentIndex + 1 %>" class="btn-nav btn-next">
+          Next →
+        </a>
+      <% } else { %>
+        <button class="btn-nav btn-next" disabled>Next →</button>
+      <% } %>
+    </div>
+
+    <!-- Keyboard shortcuts info -->
+    <div class="keyboard-hint">
+      Use ← → arrow keys to navigate
+    </div>
+
+  </div>
+
+  <!-- Keyboard navigation -->
+  <script>
+    document.addEventListener('keydown', (e) => {
+        
+      if (e.key === 'ArrowLeft' && <%= currentIndex %> > 0) {
+        window.location.href = '/view/<%= currentIndex - 1 %>';
+      } else if (e.key === 'ArrowRight' && <%= currentIndex %> < <%= photos.length - 1 %>) {
+        window.location.href = '/view/<%= currentIndex + 1 %>';
+      } else if (e.key === 'Escape') {
+        window.location.href = '/';
+      }
+    });
+  </script>
+</body>
+</html>

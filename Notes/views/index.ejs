@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>📸 My Study Notes</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>📚 My Study Notes</h1>
+      <p class="subtitle">Total Notes: <strong><%= photos.length %></strong></p>
+    </header>
+
+    <% if (photos.length === 0) { %>
+      <div class="empty-state">
+        <p>📭 No notes yet!</p>
+        <p>Add photos to View Notes</p>
+      </div>
+    <% } else { %>
+      <div class="gallery">
+        <% photos.forEach((photo, index) => { 
+          // Extract filename without extension
+          const displayName = photo.replace(/\.(jpg|jpeg|png|JPG|JPEG|PNG)$/i, '');
+        %>
+          <a href="/view/<%= index %>" class="note-card">
+            <img src="/uploads/<%= photo %>" alt="<%= displayName %>">
+            <div class="note-name"><%= displayName %></div>
+          </a>
+        <% }) %>
+      </div>
+    <% } %>
+
+    <footer>
+      <p>Click any note to start slideshow view</p>
+      <p>By Kamil</p>
+    </footer>
+  </div>
+</body>
+</html>
